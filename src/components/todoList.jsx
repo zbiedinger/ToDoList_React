@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import { getToDoList } from "../services/holderTodoItems";
 
 class TodoList extends Component {
-  state = {};
+  state = { items: getToDoList() };
   render() {
     return (
-      <div>
+      <div className="container">
         <table className="table table-hover">
           <thead>
             <tr>
@@ -15,38 +16,19 @@ class TodoList extends Component {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">
-                <input
-                  type="checkbox"
-                  aria-label="Checkbox for following text input"
-                />
-              </th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">
-                <input
-                  type="checkbox"
-                  aria-label="Checkbox for following text input"
-                />
-              </th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">
-                <input
-                  type="checkbox"
-                  aria-label="Checkbox for following text input"
-                />
-              </th>
-              <td colspan="2">Larry the Bird</td>
-              <td>@twitter</td>
-            </tr>
+            {this.state.items.map((item) => (
+              <tr key={item._id}>
+                <th scope="row">
+                  <input
+                    type="checkbox"
+                    aria-label="Checkbox for following text input"
+                  />
+                </th>
+                <td>{item.title}</td>
+                <td>{item.details}</td>
+                <td>{item.date}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

@@ -6,7 +6,7 @@ class Navbar extends Component {
 
   render() {
     return (
-      <div class="container">
+      <div>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
           <a class="navbar-brand" href="#">
             To Do List
