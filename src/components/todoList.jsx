@@ -5,7 +5,7 @@ class TodoList extends Component {
   state = { items: getToDoList() };
   render() {
     return (
-      <div className="container">
+      <div>
         <table className="table table-hover">
           <thead>
             <tr>
